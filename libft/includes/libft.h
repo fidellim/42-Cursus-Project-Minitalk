@@ -6,7 +6,7 @@
 /*   By: flim <flim@student.42abudhabi.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 15:21:42 by flim              #+#    #+#             */
-/*   Updated: 2022/02/28 18:39:18 by flim             ###   ########.fr       */
+/*   Updated: 2022/03/07 13:14:15 by flim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include "../ft_printf/includes/ft_printf.h"
 
 typedef struct s_list
 {
