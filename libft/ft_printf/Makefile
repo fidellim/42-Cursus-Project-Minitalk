@@ -6,13 +6,13 @@
 #    By: flim <flim@student.42abudhabi.ae>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/07 15:56:08 by flim              #+#    #+#              #
-#    Updated: 2022/02/27 11:10:21 by flim             ###   ########.fr        #
+#    Updated: 2022/03/07 15:09:57 by flim             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-LIBFT_DIR = libft
+LIBFT_DIR = ..
 LIBFT = libft.a
 
 CC = gcc
@@ -40,40 +40,36 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
 	@$(LIB) $(NAME) $(OBJS)
-	@echo $(BRIGHT_GREEN)"$(NAME) has been created!"$(RESET)
+	@if [ -f $(NAME) ]; \
+	then \
+		echo $(BRIGHT_GREEN)"$(NAME) has been created!"$(RESET); \
+	fi
 
 $(LIBFT):
-	@make -C $(LIBFT_DIR)
-	@cp $(LIBFT_DIR)/$(LIBFT) $(NAME)
+	@if [ -f $(LIBFT_DIR)/$(LIBFT) ]; \
+	then \
+		cp $(LIBFT_DIR)/$(LIBFT) $(NAME); \
+		echo $(BRIGHT_GREEN)"$(LIBFT) has been copied to $(NAME)!"$(RESET); \
+	fi
 
 .c.o:
 	@printf $(BRIGHT_MAGENTA)
 	$(CC) $(CFLAGS) -I$(INCLUDE) -c $< -o $(<:.c=.o)
 
 clean:
-	@make clean -C $(LIBFT_DIR)
 	@$(RM) $(OBJS)
 	@echo $(BRIGHT_RED)"DELETED FILE/S: $(OBJS)\n"$(RESET)
 
 fclean: clean
-	@$(RM) $(LIBFT_DIR)/$(LIBFT)
-	@echo $(BRIGHT_RED)"DELETED FILE: $(LIBFT)\n"$(RESET)
 	@$(RM) $(NAME)
 	@echo $(BRIGHT_RED)"DELETED FILE: $(NAME)\n"$(RESET)
 
 re: fclean $(NAME)
 
 norm:
-	@make norm -C $(LIBFT_DIR)
 	@echo $(BRIGHT_MAGENTA)"FT_PRINTF .c file/s"$(RESET)
 	@norminette -R CheckForbiddenSourceHeader $(SOURCE)/*.c
 	@echo $(BRIGHT_MAGENTA)"FT_PRINTF .h file/s"$(RESET)
 	@norminette -R CheckDefine $(INCLUDE)/*.h
 
-test:
-	@echo $(BRIGHT_CYAN)
-	@$(CC) $(CFLAGS) $(TEST) -L. -lftprintf && ./a.out
-	@$(RM) a.out
-	@printf $(RESET)
-
-.PHONY = all clean fclean re test
+.PHONY = all clean fclean re norm
