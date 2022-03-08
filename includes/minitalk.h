@@ -6,7 +6,7 @@
 /*   By: flim <flim@student.42abudhabi.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 11:02:41 by flim              #+#    #+#             */
-/*   Updated: 2022/03/07 11:11:41 by flim             ###   ########.fr       */
+/*   Updated: 2022/03/07 17:25:29 by flim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define MINITALK_H
 
 # include <signal.h>
-# include <../libft/includes/libft.h>
+# include "../libft/includes/libft.h"
 
 # define RESET "\033[0m"
 # define BRIGHT_RED "\033[31;1m"
