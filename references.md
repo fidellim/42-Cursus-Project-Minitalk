@@ -17,9 +17,17 @@
 	- [Linux Manual Page: signal()](https://man7.org/linux/man-pages/man2/signal.2.html)
 	- [Linux Manual Page: sigaction()](https://man7.org/linux/man-pages/man2/sigaction.2.html)
 
+## Binary Operators
+
+- Youtube Videos
+	- [Binary Operator Part 1](https://youtu.be/jlQmeyce65Q)
+	- [Binary Operator Part 2](https://youtu.be/8aFik6lPPaA)
+	- [Binary Operator Part 3](https://youtu.be/GhhJP6vpEA8)
+	- [Binary Operator Part 4](https://youtu.be/kYR5biY4OHw)
+
 ## Makefile
 
-- Website
+- Websites
 	- [If Statements in Makefile](https://stackoverflow.com/questions/15977796/if-conditions-in-a-makefile-inside-a-target)
 	- [Bash If-Else Statements](https://linuxize.com/post/bash-if-else-statement/)
 	- [Check if File Exists](https://devconnected.com/how-to-check-if-file-or-directory-exists-in-bash/#Checking_multiple_files)
