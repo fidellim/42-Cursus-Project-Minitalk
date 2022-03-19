@@ -6,7 +6,7 @@
 /*   By: flim <flim@student.42abudhabi.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 12:55:56 by flim              #+#    #+#             */
-/*   Updated: 2022/03/19 13:24:29 by flim             ###   ########.fr       */
+/*   Updated: 2022/03/19 13:33:53 by flim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ int	main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	signal(SIGUSR1, handle_signal);
-	signal(SIGUSR2, handle_signal);
 	pid = ft_atoi(argv[1]);
 	g_str_len = ft_strlen(argv[2]);
 	ft_str_to_binary(pid, argv[2]);
