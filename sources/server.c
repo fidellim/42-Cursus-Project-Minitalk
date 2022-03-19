@@ -6,13 +6,13 @@
 /*   By: flim <flim@student.42abudhabi.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 15:17:28 by flim              #+#    #+#             */
-/*   Updated: 2022/03/19 13:35:40 by flim             ###   ########.fr       */
+/*   Updated: 2022/03/19 17:13:12 by flim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minitalk.h"
 
-static void	ft_binary_to_str(int sig, siginfo_t *info, void *ptr)
+static void	handle_binary_to_str(int sig, siginfo_t *info, void *ptr)
 {
 	static char	c;
 	static char	num_of_bits;
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	sa.sa_flags = SA_SIGINFO;
-	sa.sa_sigaction = ft_binary_to_str;
+	sa.sa_sigaction = handle_binary_to_str;
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
 	ft_printf(BRIGHT_GREEN "Server PID: %u\n" RESET, getpid());
