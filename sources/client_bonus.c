@@ -6,7 +6,7 @@
 /*   By: flim <flim@student.42abudhabi.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 12:55:56 by flim              #+#    #+#             */
-/*   Updated: 2022/03/19 15:14:01 by flim             ###   ########.fr       */
+/*   Updated: 2022/03/19 16:41:36 by flim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,23 +45,23 @@ static void	handle_signal(int sig)
 
 static void	ft_str_to_binary(int pid, char *str)
 {
-	int	i;
-	int	b;
+	int	index;
+	int	shift_len;
 
-	i = 0;
-	while (str[i])
+	index = 0;
+	while (str[index])
 	{
-		b = 7;
-		while (b >= 0)
+		shift_len = 7;
+		while (shift_len >= 0)
 		{
-			if ((str[i] & (1 << b)) > 0)
+			if ((str[index] & (1 << shift_len)) > 0)
 				kill(pid, SIGUSR1);
 			else
 				kill(pid, SIGUSR2);
-			b--;
+			shift_len--;
 			usleep(100);
 		}
-		i++;
+		index++;
 	}
 }
 
