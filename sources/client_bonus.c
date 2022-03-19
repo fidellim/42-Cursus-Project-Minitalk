@@ -6,13 +6,29 @@
 /*   By: flim <flim@student.42abudhabi.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 12:55:56 by flim              #+#    #+#             */
-/*   Updated: 2022/03/19 13:33:53 by flim             ###   ########.fr       */
+/*   Updated: 2022/03/19 15:14:01 by flim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minitalk_bonus.h"
 
 int	g_str_len;
+
+static void	are_args_valid(int pid, char *str)
+{
+	if (pid < MIN_PID || pid > MAX_PID)
+	{
+		ft_printf(BRIGHT_RED "ERROR: PID range: %d and %d\n"
+			RESET, MIN_PID, MAX_PID);
+		exit(EXIT_FAILURE);
+	}
+	if (!*str)
+	{
+		ft_printf(BRIGHT_RED "ERROR: string is empty"
+			RESET);
+		exit(EXIT_FAILURE);
+	}
+}
 
 static void	handle_signal(int sig)
 {
@@ -61,6 +77,7 @@ int	main(int argc, char **argv)
 	}
 	signal(SIGUSR1, handle_signal);
 	pid = ft_atoi(argv[1]);
+	are_args_valid(pid, argv[2]);
 	g_str_len = ft_strlen(argv[2]);
 	ft_str_to_binary(pid, argv[2]);
 	while (1)
