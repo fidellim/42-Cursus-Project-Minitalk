@@ -6,7 +6,7 @@
 /*   By: flim <flim@student.42abudhabi.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 15:17:28 by flim              #+#    #+#             */
-/*   Updated: 2022/03/19 13:32:03 by flim             ###   ########.fr       */
+/*   Updated: 2022/03/19 13:35:40 by flim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static void	ft_binary_to_str(int sig, siginfo_t *info, void *ptr)
 	static char	num_of_bits;
 
 	(void) ptr;
+	(void) info;
 	if (sig == SIGUSR1)
 		c |= 1;
 	if (sig == SIGUSR2)
