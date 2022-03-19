@@ -6,7 +6,7 @@
 /*   By: flim <flim@student.42abudhabi.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 12:55:56 by flim              #+#    #+#             */
-/*   Updated: 2022/03/19 16:41:36 by flim             ###   ########.fr       */
+/*   Updated: 2022/03/19 17:16:49 by flim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,12 @@ static void	are_args_valid(int pid, char *str)
 	}
 }
 
-static void	handle_signal(int sig)
+static void	handle_signal(int sig, siginfo_t *info, void *ptr)
 {
 	static int	count_str;
 
+	(void) ptr;
+	(void) info;
 	if (sig == SIGUSR1)
 		count_str++;
 	if (count_str == g_str_len)
@@ -67,7 +69,8 @@ static void	ft_str_to_binary(int pid, char *str)
 
 int	main(int argc, char **argv)
 {
-	int		pid;
+	struct sigaction	sa;
+	int					pid;
 
 	if (argc != 3)
 	{
@@ -75,7 +78,9 @@ int	main(int argc, char **argv)
 			"%s MUST HAVE 3 ARGUMENTS!\n" RESET, argv[0]);
 		exit(EXIT_FAILURE);
 	}
-	signal(SIGUSR1, handle_signal);
+	sa.sa_flags = SA_SIGINFO;
+	sa.sa_sigaction = handle_signal;
+	sigaction(SIGUSR1, &sa, NULL);
 	pid = ft_atoi(argv[1]);
 	are_args_valid(pid, argv[2]);
 	g_str_len = ft_strlen(argv[2]);
