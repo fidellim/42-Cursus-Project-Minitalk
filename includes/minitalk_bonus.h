@@ -6,7 +6,7 @@
 /*   By: flim <flim@student.42abudhabi.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 12:50:41 by flim              #+#    #+#             */
-/*   Updated: 2022/03/19 12:51:13 by flim             ###   ########.fr       */
+/*   Updated: 2022/03/19 14:46:45 by flim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,8 @@
 # define BRIGHT_CYAN "\033[36;1m"
 # define BRIGHT_GREEN "\033[32;1m"
 # define BRIGHT_MAGENTA "\033[35;1m"
+
+# define MIN_PID 1
+# define MAX_PID 99999
 
 #endif
