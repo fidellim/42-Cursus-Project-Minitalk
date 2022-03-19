@@ -6,7 +6,7 @@
 /*   By: flim <flim@student.42abudhabi.ae>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 15:17:28 by flim              #+#    #+#             */
-/*   Updated: 2022/03/19 12:43:15 by flim             ###   ########.fr       */
+/*   Updated: 2022/03/19 13:32:03 by flim             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static void	ft_binary_to_str(int sig, siginfo_t *info, void *ptr)
 		ft_printf("%c", c);
 		num_of_bits = 0;
 		c = 0;
-		kill(info->si_pid, SIGUSR1);
 	}
 	c <<= 1;
 }
